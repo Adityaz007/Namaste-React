@@ -1,46 +1,34 @@
-/*
-*<div id="parent"
-*    <div id="child1">
-*        <h1>I am an h1 tag</h1
-*        <h2>I am an h2 tag</>
-*        </div>
-<div id="child2">
-*        <h1>I am an h1 tag</h1
-*        <h2>I am an h2 tag</>
-*        </div>
-*     </div>
-*
-
-*/
-
 import React from "react";
-import ReactDOM from "react-dom";
-
-const parent = React.createElement(
-    "div",
-    {id:"parent"},
-   [ React.createElement(
-        "div",
-        {id:"child1"}, 
-        [React.createElement(
-            "h1",
-            {},
-            "This is Namaste React 🚀"),React.createElement("h2",{},"I am an h2 tag")],
-            React.createElement(
-                "div",
-                {id:"child2"}, 
-                [React.createElement(
-                    "h1",
-                    {},
-                    "I am an h1 tag"),React.createElement("h2",{},"I am an h2 tag")]))]
-        )
+import ReactDOM from "react-dom/client";
 
 
+// React Element
+
+const heading = React.createElement("h1",{id: "heading"},"Namaste React 🚀");
+
+const elem = <span>React Element</span>;
+
+const jsxHeading = (<h1 className="head">
+    {elem}
+    Namaste React using JSX</h1>);
+
+const HeadingComponent = () => {
+    return <h1>First Functional Component</h1>;
+};
+
+const number = 10000;
+const HeadingComponent2 = () => (
+    <div id="container">
+        <HeadingComponent/>
+        {number}
+        {jsxHeading}
+        {HeadingComponent()}
+        <h2>{100+200}</h2>
+     <h1 className="heading">Second Functional Component</h1>
+     </div>
+);
 
 
-const heading = React.createElement(
-    "h1",
-    {id: "heading"},
-"Hello World from React!");
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
+
+root.render(<HeadingComponent2 />);
